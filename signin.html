@@ -1,0 +1,103 @@
+<!-- signin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sign In</h1>
+    <form id="signinForm" action="/signin" method="POST">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <label class="labels">Gender:</label> 
+        <input type="radio" name="gender"  id="female">
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="male">
+        <label for="male">Male</label><br><br>
+        <label class="labels">Department:</label>
+        <input type="radio" name="department" id="PUC">
+        <label for="PUC">PUC</label>
+        <input type="radio" name="department" id="Engineering" >
+        <label for="Engineering">Engineering</label><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Script to handle form submission -->
+    <script>
+        document.getElementById("signinForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            // Fetch data from form
+            let formData = new FormData(document.getElementById("signinForm"));
+            
+            // Send POST request using fetch
+            fetch('/signin', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message); // Display response message
+                document.getElementById("signinForm").reset(); // Reset form fields
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred! Please try again.'); // Display error message
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+*{
+	margin : 0;
+	padding : 0;
+	box-sizing : border-box;
+}
+html,
+body {
+	height: 100%;
+}
+body {
+	font-family: 'Poppins', sans-serif;
+	background-color: #151515;
+	color: #fff;
+	display: grid;
+	place-items: center;
+}
+img {
+	display: block;
+	max-width: 100%;
+}
+/* ======================== */
+.name{
+    letter-spacing: 1px;
+	text-transform: uppercase;
+    color: whitesmoke;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkslateblue;
+}
+.card {
+	position: relative;
+	width: 350px;
+	height: 250px;
+	background-color: #f1badb;
+	overflow: hidden;
+}
+.card__image {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	scale: 1.15;
+	transition: opacity 0.25s, scale 0.35s;
+    display: flex;
+    box-shadow: 0 0 3px #FF0000;
+}
+.card:hover .card__image {
+	opacity: 0.5;
+	scale: 1;
+}
+.card__body {
+	position: absolute;
+	inset: 0;
+	padding: 50px;
+	color: #fff;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 15px;
+	justify-content: center;
+}
+.card__body::before {
+	content: '';
+	position: absolute;
+	inset: 20px;
+	border: 2px solid #fff;
+	opacity: 0;
+	scale: 1.25;
+	transition: opacity 0.25s, scale 0.25s;
+}
+.card:hover .card__body::before {
+	opacity: 1;
+	scale: 1;
+}
+.card__title {
+	letter-spacing: 2px;
+	text-transform: uppercase;
+    color: rgb(8, 8, 8);
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+
+}
+.card__description {
+    color: rgb(8, 8, 8);
+	font-size: 14px;
+	opacity: 0;
+	translate: -25px;
+	transition: opacity 0.25s, translate 0.25s;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+.card:hover .card__description {
+	opacity: 1;
+	translate: 0;
+}
+.hero-content button{
+    display: inline-block;
+    background-color: #f0e8e5;
+    color:#fff;
+    padding: 20px 24px;
+    border-radius: 50px;
+    font-size: 300px;
+    border: none;
+    cursor: pointer;
+    transition: o.3s ease;
+}
+.hero-content button:hover{
+    background-color:#e63b9f;
+    transform: scale(1.1);
+}
+.hero-content button{
+    font-size: 25px;
+    padding:10px 20px;
+}

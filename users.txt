@@ -1,0 +1,3 @@
+n190087@rguktn.ac.in,prasanna,Female,Engineering
+n1900111@rguktn.ac.in,sneha,Female,Engineering
+n230067@rguktn.ac.in,devi,Female,PUC
